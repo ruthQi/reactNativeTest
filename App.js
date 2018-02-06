@@ -5,6 +5,8 @@
  */
 
 import React, { Component } from 'react';
+import Test from './components/test/test';
+import Hello from './components/test/hello';
 import {
   Platform,
   StyleSheet,
@@ -32,6 +34,8 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        <Test />
+        <Hello />
       </View>
     );
   }
@@ -43,6 +47,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    flexDirection: 'column'
   },
   welcome: {
     fontSize: 20,
@@ -53,5 +58,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  },
+  }
 });

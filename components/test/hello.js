@@ -1,12 +1,12 @@
 
 
 import React, {Component} from 'react';
-import {Text, Image, View, StyleSheet, FlatList, AppRegistry} from 'react-native';
+import {Text, Image, View, StyleSheet, FlatList} from 'react-native';
 
-export default class Hello extends Component{
+export default class HelloWorld extends Component{
 
-   constructor(props) {
-      super(props);
+   constructor() {
+      super();
       this.state = {
          data: []
       };
@@ -41,9 +41,10 @@ export default class Hello extends Component{
    
    render(){
       return(
-         <FlatList data={this.state.data} renderItem={this.renderAvater} keyExtractor={this.keyExtractor}/>
+         <FlatList style={styles.listContainer} data={this.state.data} renderItem={this.renderAvater} keyExtractor={this.keyExtractor}/>
       )
    }
+
    keyExtractor = (item, index) => {
       return index;
    }
@@ -62,8 +63,11 @@ export default class Hello extends Component{
    }
 }
 
-var styles = StyleSheet.create({
-
+const styles = StyleSheet.create({
+   listContainer: {
+      flex: 1,
+      width: 300
+   },
    container: {
       flex: 1,
       flexDirection: 'row',
@@ -71,6 +75,7 @@ var styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: '#F5FCFF',
    },
+   
    rightConatiner: {
       flex: 1
    },
