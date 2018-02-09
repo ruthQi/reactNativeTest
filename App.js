@@ -7,6 +7,8 @@
 import React, { Component } from 'react';
 import Test from './components/test/test';
 import Hello from './components/test/hello';
+import ScrollTest from './components/test/scrollView';
+import SectionTest from './components/test/sectionList';
 import {
   Platform,
   StyleSheet,
@@ -25,7 +27,7 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
+        {/*<Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
@@ -33,9 +35,12 @@ export default class App extends Component<{}> {
         </Text>
         <Text style={styles.instructions}>
           {instructions}
-        </Text>
+        </Text>*/}
+        {/*这里设置flex样式是不好使的，得在组件内设置样式*/}
         <Test />
         <Hello />
+        <ScrollTest />
+        <SectionTest />
       </View>
     );
   }
@@ -48,6 +53,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
     flexDirection: 'column'
+  },
+  listContainer: {
+      flex: 1,
+      width: 300
   },
   welcome: {
     fontSize: 20,
