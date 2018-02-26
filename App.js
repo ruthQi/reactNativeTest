@@ -5,17 +5,19 @@
  */
 
 import React, { Component } from 'react';
-import Test from './components/test/test';
-import Hello from './components/test/hello';
-import ScrollTest from './components/test/scrollView';
-import SectionTest from './components/test/sectionList';
+import Routers from './components/test/routers';
+
+import {
+    StackNavigator,
+    TabNavigator,
+} from 'react-navigation';
 import {
   Platform,
   StyleSheet,
   Text,
   View
 } from 'react-native';
-
+import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -23,26 +25,22 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component<{}> {
+/*class App extends Component<{}> {
   render() {
     return (
-      <View style={styles.container}>
-        {/*<Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>*/}
-        {/*这里设置flex样式是不好使的，得在组件内设置样式*/}
-        <Test />
-        <Hello />
-        <ScrollTest />
-        <SectionTest />
-      </View>
+      <Navigator initialRoute={{component: Home}} renderScene={(route, navigator)=>{
+         return <route.component navigator={navigator} {...route} {...route.passProps}/>
+      }}/>
     );
+  }
+}*/
+
+
+export default class App extends Component{
+  render(){
+    return(
+      <Routers screenProps={{themeColor:'yellow'}}/>
+    )
   }
 }
 

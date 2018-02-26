@@ -2,8 +2,14 @@
 
 import React, {Component} from 'react';
 import {Text, Image, View, StyleSheet, FlatList} from 'react-native';
-
 export default class HelloWorld extends Component{
+
+   static navigationOptions = ({navigation,screenProps}) => ({
+        // 这里面的属性和App.js的navigationOptions是一样的。
+        headerTitle:navigation.state.params?navigation.state.params.headerTitle:'Hello',
+        gestureResponseDistance:{horizontal:500},
+
+    });
 
    constructor() {
       super();
@@ -38,7 +44,17 @@ export default class HelloWorld extends Component{
          data: this.dataList || []
       })
    }
-   
+   /*nextScene = () => {
+      this.props.navigator.push({
+         component: ScrollTest,
+         params: {
+            navigator: this.props.navigator,
+         }
+      })
+   }
+   preScene = () => {
+      this.props.navigator.pop();
+   }*/
    render(){
       return(
          <FlatList style={styles.listContainer} data={this.state.data} renderItem={this.renderAvater} keyExtractor={this.keyExtractor}/>
@@ -48,14 +64,18 @@ export default class HelloWorld extends Component{
    keyExtractor = (item, index) => {
       return index;
    }
-   renderAvater(data){
+   renderAvater = (data) => {
       console.log(data);
       let dataItem = data.item;
       return(
          <View style={styles.container}>
             <Image source={{uri: dataItem.uri}} style={{width: 100, height: 100}}/>
             <View style={styles.rightConatiner}>
-               <Text style={styles.title}>{dataItem.name}</Text>
+               <Text style={styles.title} onPress={()=>{
+                  const { navigate } = this.props.navigation;
+                  navigate('ScrollTest')
+               }}>{dataItem.name}</Text>
+               
             </View>
          </View>
          
