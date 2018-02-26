@@ -2,7 +2,7 @@
  import {ScrollView, Image, Text, View} from 'react-native';
 
  export default class ScrollTest extends Component{
-   //horizontal为true时表示水平滚动，默认为false,为垂直滚动(添加此属性即为水平滚动)
+   //horizontal为true时表示水平滚动，默认为false,为垂直滚动(添加此属性即为水平滚动)test
    render(){
       return(
          <ScrollView style={{width: 300}} horizontal>
