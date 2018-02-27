@@ -8,7 +8,6 @@ import Hello from './hello';
 import ScrollTest from './scrollView';
 import Home from './index';
 import SectionList from './sectionList';
-
 export default MyApp = StackNavigator({
     // 将TabNavigator包裹在StackNavigator里面可以保证跳转页面的时候隐藏tabbar
     Home:{
